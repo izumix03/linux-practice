@@ -89,7 +89,7 @@ mounts:
 #     # See https://www.kernel.org/doc/Documentation/filesystems/9p.txt
 #     # 🟢 Builtin default: "fscache" for non-writable mounts, "mmap" for writable mounts
 #     cache: null
-- location: "~/IdeaProjects/linux-practice/mount"
+- location: "$(PWD)/mount"
   # 🟢 Builtin default: false
   # 🔵 This file: true (only for "/tmp/lima")
   writable: true
