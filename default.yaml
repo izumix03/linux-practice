@@ -178,19 +178,15 @@ provision:
   script: |
     #!/bin/bash
     set -eux -o pipefail
-    apt install binutils build-essential golang sysstat python3-matplotlib python3-pil fonts-takao fio qemu-kvm virt-manager libvirt-clients virtinst jq docker.io containerd libvirt-daemon-system
-    adduser `id -un` libvirt
-    adduser `id -un` libvirt-qemu
-    adduser `id -un` kvm
+    apt install -y binutils build-essential golang sysstat python3-matplotlib python3-pil fonts-takao fio qemu-kvm virt-manager libvirt-clients virtinst jq docker.io containerd libvirt-daemon-system
     
 # `user` is executed without the root privilege
-# - mode: user
-#   script: |
-#     #!/bin/bash
-#     set -eux -o pipefail
-#     cat <<EOF > ~/.vimrc
-#     set number
-#     EOF
+- mode: user
+  script: |
+   #!/bin/bash
+    sudo adduser `id -un` libvirt
+    sudo adduser `id -un` libvirt-qemu
+    sudo adduser `id -un` kvm
 # `boot` is executed directly by /bin/sh as part of cloud-init-local.service's early boot process,
 # which is why there is no hash-bang specified in the example
 # See cloud-init docs for more info https://cloudinit.readthedocs.io/en/latest/topics/examples.html#run-commands-on-first-boot
