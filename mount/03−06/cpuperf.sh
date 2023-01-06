@@ -47,4 +47,4 @@ for((i=1;i<=MAX_NPROC;i++)); do
   measure $i $MEASURE_OPT >>cpuperf.data
 done
 
-./plot-perf.py $MAX_NPROC
+./plot_perf.py $MAX_NPROC
